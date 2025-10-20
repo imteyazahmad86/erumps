@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERUM Admin Panel</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0066b2;
+            --primary-pink: #e91e8c;
+            --primary-green: #00a651;
+            --primary-red: #ed1c24;
+            --primary-purple: #2d1b5e;
+            --dark-bg: #1a1a2e;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--light-bg);
+        }
+
+        /* Login Page Styles */
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 50%, var(--primary-pink) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
+            opacity: 0.3;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 20px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 450px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .login-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            display: block;
+        }
+
+        .login-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .login-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 0.2rem rgba(0,102,178,0.15);
+        }
+
+        .input-group-text {
+            border-radius: 10px 0 0 10px;
+            border: 2px solid #e0e0e0;
+            border-right: none;
+            background: white;
+            color: var(--primary-blue);
+        }
+
+        .input-group .form-control {
+            border-left: none;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .btn-login {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-pink));
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Admin Dashboard Styles */
+        .admin-container {
+            display: none;
+        }
+
+        .admin-header {
+            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .admin-header .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .admin-header .navbar-brand img {
+            height: 50px;
+            margin-right: 10px;
+            background: white;
+            padding: 5px;
+            border-radius: 8px;
+        }
+
+        .admin-content {
+            padding: 30px 0;
+        }
+
+        .stats-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .stats-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .stats-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+        }
+
+        .stats-label {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .requests-table {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .table-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-purple);
+            margin-bottom: 20px;
+        }
+
+        .table {
+            margin-bottom: 0;
+        }
+
+        .table thead {
+            background: linear-gradient(135deg, rgba(0,102,178,0.1), rgba(233,30,140,0.1));
+        }
+
+        .table thead th {
+            border: none;
+            color: var(--primary-purple);
+            font-weight: 600;
+            padding: 15px;
+        }
+
+        .table tbody td {
+            padding: 15px;
+            vertical-align: middle;
+        }
+
+        .badge-status {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge-pending {
+            background: #ffeaa7;
+            color: #fdcb6e;
+        }
+
+        .badge-processing {
+            background: #74b9ff;
+            color: #0984e3;
+        }
+
+        .badge-completed {
+            background: #55efc4;
+            color: #00b894;
+        }
+
+        .btn-view {
+            background: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 6px 15px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+        }
+
+        .btn-view:hover {
+            background: var(--primary-pink);
+            transform: scale(1.05);
+        }
+
+        .btn-logout {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+            padding: 8px 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .btn-logout:hover {
+            background: white;
+            color: var(--primary-blue);
+        }
+
+        .search-filter {
+            margin-bottom: 20px;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-group .form-control,
+        .filter-group .form-select {
+            max-width: 250px;
+        }
+
+        /* Modal Styles */
+        .modal-header {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-pink));
+            color: white;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--primary-purple);
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .file-download {
+            display: inline-block;
+            background: var(--light-bg);
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin: 5px;
+            text-decoration: none;
+            color: var(--primary-blue);
+            transition: all 0.3s;
+        }
+
+        .file-download:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .login-card {
+                margin: 20px;
+                padding: 30px 25px;
+            }
+
+            .table-responsive {
+                font-size: 0.85rem;
+            }
+
+            .filter-group {
+                flex-direction: column;
+            }
+
+            .filter-group .form-control,
+            .filter-group .form-select {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Page -->
+    <div id="loginPage" class="login-container">
+        <div class="login-card">
+            <img src="erumlogo.jpeg" alt="ERUM Logo" class="login-logo">
+            <h2 class="login-title">Admin Login</h2>
+            <p class="login-subtitle">ERUM Professional Services</p>
+            
+            <form id="loginForm">
+                <div class="mb-3">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                        <input type="text" class="form-control" id="username" placeholder="Username" required>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" class="form-control" id="password" placeholder="Password" required>
+                    </div>
+                </div>
+                <div class="alert alert-danger d-none" id="loginError">
+                    Invalid username or password!
+                </div>
+                <button type="submit" class="btn btn-login">
+                    <i class="fas fa-sign-in-alt me-2"></i> Login
+                </button>
+            </form>
+            
+            <!-- <div class="text-center mt-3"> -->
+                <!-- <small class="text-muted">Demo: admin / admin123</small> -->
+            <!-- </div> -->
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="admin-container">
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="navbar-brand">
+                        <img src="erumlogo.jpeg" alt="ERUM Logo">
+                        <span>Admin Panel</span>
+                    </div>
+                    <div>
+                        <span class="me-3">Welcome, <strong id="adminName">Admin</strong></span>
+                        <button class="btn btn-logout" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt me-2"></i> Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Content -->
+        <div class="admin-content">
+            <div class="container">
+                <!-- Stats Cards -->
+                <div class="row mb-4">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-card">
+                            <div class="stats-icon" style="background: linear-gradient(135deg, #667eea, #764ba2);">
+                                <i class="fas fa-clipboard-list"></i>
+                            </div>
+                            <div class="stats-number" id="totalRequests">0</div>
+                            <div class="stats-label">Total Requests</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-card">
+                            <div class="stats-icon" style="background: linear-gradient(135deg, #f093fb, #f5576c);">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stats-number" id="pendingRequests">0</div>
+                            <div class="stats-label">Pending</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-card">
+                            <div class="stats-icon" style="background: linear-gradient(135deg, #4facfe, #00f2fe);">
+                                <i class="fas fa-spinner"></i>
+                            </div>
+                            <div class="stats-number" id="processingRequests">0</div>
+                            <div class="stats-label">Processing</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="stats-card">
+                            <div class="stats-icon" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stats-number" id="completedRequests">0</div>
+                            <div class="stats-label">Completed</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Requests Table -->
+                <div class="requests-table">
+                    <h3 class="table-title">Service Requests</h3>
+                    
+                    <!-- Search and Filter -->
+                    <div class="search-filter">
+                        <div class="filter-group">
+                            <input type="text" class="form-control" id="searchInput" placeholder="Search by name, email, phone...">
+                            <select class="form-select" id="statusFilter">
+                                <option value="">All Status</option>
+                                <option value="pending">Pending</option>
+                                <option value="processing">Processing</option>
+                                <option value="completed">Completed</option>
+                            </select>
+                            <select class="form-select" id="serviceFilter">
+                                <option value="">All Services</option>
+                                <option value="gst">GST</option>
+                                <option value="itr">Income Tax Return</option>
+                                <option value="roc">Company Registration</option>
+                                <option value="trademark">Trademark</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Service</th>
+                                    <th>Contact</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="requestsTableBody">
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Request Details Modal -->
+    <div class="modal fade" id="requestModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Request Details</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Details will be populated by JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="updateStatus()">Update Status</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Demo data - In production, this would come from a backend API
+        let serviceRequests = [
+            {
+                id: 1,
+                name: "Rajesh Kumar",
+                email: "rajesh.kumar@example.com",
+                phone: "+91 9876543210",
+                service: "GST Registration",
+                serviceCode: "gst",
+                message: "Need GST registration for new business",
+                date: "2025-10-18",
+                status: "pending",
+                files: ["business_proof.pdf", "address_proof.jpg"]
+            },
+            {
+                id: 2,
+                name: "Priya Sharma",
+                email: "priya.sharma@example.com",
+                phone: "+91 9876543211",
+                service: "Income Tax Return",
+                serviceCode: "itr",
+                message: "ITR filing for AY 2024-25",
+                date: "2025-10-17",
+                status: "processing",
+                files: ["form16.pdf", "bank_statement.pdf"]
+            },
+            {
+                id: 3,
+                name: "Amit Patel",
+                email: "amit.patel@example.com",
+                phone: "+91 9876543212",
+                service: "Company Registration",
+                serviceCode: "roc",
+                message: "Want to register Private Limited Company",
+                date: "2025-10-16",
+                status: "completed",
+                files: ["pan_card.pdf", "aadhar.pdf", "agreement.pdf"]
+            },
+            {
+                id: 4,
+                name: "Sneha Gupta",
+                email: "sneha.gupta@example.com",
+                phone: "+91 9876543213",
+                service: "Trademark Registration",
+                serviceCode: "trademark",
+                message: "Need to register company logo as trademark",
+                date: "2025-10-19",
+                status: "pending",
+                files: ["logo.png", "business_details.pdf"]
+            },
+            {
+                id: 5,
+                name: "Vikram Singh",
+                email: "vikram.singh@example.com",
+                phone: "+91 9876543214",
+                service: "FSSAI License",
+                serviceCode: "fssai",
+                message: "Food license for restaurant",
+                date: "2025-10-15",
+                status: "processing",
+                files: ["restaurant_details.pdf", "owner_id.pdf"]
+            }
+        ];
+
+        let currentRequest = null;
+
+        // Login functionality
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Demo credentials
+            if (username === 'admin' && password === 'admin123') {
+                document.getElementById('loginPage').style.display = 'none';
+                document.getElementById('adminDashboard').style.display = 'block';
+                document.getElementById('adminName').textContent = 'Admin';
+                loadDashboard();
+            } else {
+                document.getElementById('loginError').classList.remove('d-none');
+            }
+        });
+
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            document.getElementById('loginPage').style.display = 'flex';
+            document.getElementById('adminDashboard').style.display = 'none';
+            document.getElementById('loginForm').reset();
+            document.getElementById('loginError').classList.add('d-none');
+        });
+
+        // Load dashboard data
+        function loadDashboard() {
+            updateStats();
+            renderTable(serviceRequests);
+        }
+
+        // Update statistics
+        function updateStats() {
+            const total = serviceRequests.length;
+            const pending = serviceRequests.filter(r => r.status === 'pending').length;
+            const processing = serviceRequests.filter(r => r.status === 'processing').length;
+            const completed = serviceRequests.filter(r => r.status === 'completed').length;
+
+            document.getElementById('totalRequests').textContent = total;
+            document.getElementById('pendingRequests').textContent = pending;
+            document.getElementById('processingRequests').textContent = processing;
+            document.getElementById('completedRequests').textContent = completed;
+        }
+
+        // Render table
+        function renderTable(data) {
+            const tbody = document.getElementById('requestsTableBody');
+            tbody.innerHTML = '';
+
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="text-center">No requests found</td></tr>';
+                return;
+            }
+
+            data.forEach(request => {
+                const statusClass = 
+                    request.status === 'pending' ? 'badge-pending' :
+                    request.status === 'processing' ? 'badge-processing' :
+                    'badge-completed';
+
+                const row = `
+                    <tr>
+                        <td>#${request.id}</td>
+                        <td>${request.name}</td>
+                        <td>${request.service}</td>
+                        <td>
+                            <small>${request.phone}<br>${request.email}</small>
+                        </td>
+                        <td>${formatDate(request.date)}</td>
+                        <td><span class="badge-status ${statusClass}">${capitalize(request.status)}</span></td>
+                        <td>
+                            <button class="btn btn-view" onclick="viewRequest(${request.id})">
+                                <i class="fas fa-eye"></i> View
+                            </button>
+                        </td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+        }
+
+        // View request details
+        function viewRequest(id) {
+            currentRequest = serviceRequests.find(r => r.id === id);
+            if (!currentRequest) return;
+
+            const filesHtml = currentRequest.files.length > 0 
+                ? currentRequest.files.map(file => 
+                    `<a href="#" class="file-download"><i class="fas fa-download me-2"></i>${file}</a>`
+                  ).join('')
+                : '<span class="text-muted">No files uploaded</span>';
+
+            document.getElementById('modalBody').innerHTML = `
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="detail-label">Request ID</div>
+                        <div class="detail-value">#${currentRequest.id}</div>
+                        
+                        <div class="detail-label">Full Name</div>
+                        <div class="detail-value">${currentRequest.name}</div>
+                        
+                        <div class="detail-label">Email</div>
+                        <div class="detail-value">${currentRequest.email}</div>
+                        
+                        <div class="detail-label">Phone</div>
+                        <div class="detail-value">${currentRequest.phone}</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="detail-label">Service Type</div>
+                        <div class="detail-value">${currentRequest.service}</div>
+                        
+                        <div class="detail-label">Request Date</div>
+                        <div class="detail-value">${formatDate(currentRequest.date)}</div>
+                        
+                        <div class="detail-label">Current Status</div>
+                        <div class="detail-value">
+                            <select class="form-select" id="statusSelect">
+                                <option value="pending" ${currentRequest.status === 'pending' ? 'selected' : ''}>Pending</option>
+                                <option value="processing" ${currentRequest.status === 'processing' ? 'selected' : ''}>Processing</option>
+                                <option value="completed" ${currentRequest.status === 'completed' ? 'selected' : ''}>Completed</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 mt-3">
+                        <div class="detail-label">Message / Additional Details</div>
+                        <div class="detail-value">${currentRequest.message || 'No message provided'}</div>
+                        
+                        <div class="detail-label">Uploaded Documents</div>
+                        <div class="detail-value">${filesHtml}</div>
+                    </div>
+                </div>
+            `;
+
+            const modal = new bootstrap.Modal(document.getElementById('requestModal'));
+            modal.show();
+        }
+
+        // Update status
+        function updateStatus() {
+            if (!currentRequest) return;
+
+            const newStatus = document.getElementById('statusSelect').value;
+            const index = serviceRequests.findIndex(r => r.id === currentRequest.id);
+            
+            if (index !== -1) {
+                serviceRequests[index].status = newStatus;
+                updateStats();
+                renderTable(filterRequests());
+                
+                const modal = bootstrap.Modal.getInstance(document.getElementById('requestModal'));
+                modal.hide();
+                
+                alert('Status updated successfully!');
+            }
+        }
+
+        // Filter requests
+        function filterRequests() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const statusFilter = document.getElementById('statusFilter').value;
+            const serviceFilter = document.getElementById('serviceFilter').value;
+
+            return serviceRequests.filter(request => {
+                const matchesSearch = 
+                    request.name.toLowerCase().includes(searchTerm) ||
+                    request.email.toLowerCase().includes(searchTerm) ||
+                    request.phone.includes(searchTerm);
+                
+                const matchesStatus = !statusFilter || request.status === statusFilter;
+                const matchesService = !serviceFilter || request.serviceCode === serviceFilter;
+
+                return matchesSearch && matchesStatus && matchesService;
+            });
+        }
+
+        // Event listeners for filters
+        document.getElementById('searchInput').addEventListener('input', function() {
+            renderTable(filterRequests());
+        });
+
+        document.getElementById('statusFilter').addEventListener('change', function() {
+            renderTable(filterRequests());
+        });
+
+        document.getElementById('serviceFilter').addEventListener('change', function() {
+            renderTable(filterRequests());
+        });
+
+        // Helper functions
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-IN', { year: 'numeric', month: 'short', day: 'numeric' });
+        }
+
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        // Simulate receiving new requests from the main website
+        function addNewRequest(requestData) {
+            const newRequest = {
+                id: serviceRequests.length + 1,
+                name: requestData.fullName,
+                email: requestData.email,
+                phone: requestData.phone,
+                service: requestData.serviceType,
+                serviceCode: requestData.serviceType,
+                message: requestData.message,
+                date: new Date().toISOString().split('T')[0],
+                status: 'pending',
+                files: requestData.files || []
+            };
+            
+            serviceRequests.unshift(newRequest);
+            updateStats();
+            renderTable(filterRequests());
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if already logged in (you can implement session management)
+            // For now, we start with login page
+        });
+    </script>
+</body>
+</html>
