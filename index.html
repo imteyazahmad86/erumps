@@ -1416,7 +1416,7 @@
         document
           .querySelectorAll(".service-card")
           .forEach(function (card, idx) {
-            debugger;
+            
             // Make the whole card clickable; add a data-service attribute if not present
             // We'll infer service key from the displayed title number or index as reasonable fallback
             card.style.cursor = "pointer";
@@ -1432,7 +1432,7 @@
                 if (titleEl) {
                   const txt = titleEl.textContent || titleEl.innerText || "";
                   // map common names to keys
-                  debugger;
+                  
                   const map = {
                     "Goods and Services Tax": "gst",
                     "Income Tax Return": "itr",
