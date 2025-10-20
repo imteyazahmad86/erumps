@@ -1,922 +1,1557 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Erum Professional Services - Legal Compliances Expert</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
     <style>
-        :root {
-            --primary-blue: #0066b2;
-            --primary-pink: #e91e8c;
-            --primary-green: #00a651;
-            --primary-red: #ed1c24;
-            --primary-purple: #2d1b5e;
-            --dark-bg: #1a1a2e;
-            --light-bg: #f8f9fa;
-        }
+      :root {
+        --primary-blue: #0066b2;
+        --primary-pink: #e91e8c;
+        --primary-green: #00a651;
+        --primary-red: #ed1c24;
+        --primary-purple: #2d1b5e;
+        --dark-bg: #1a1a2e;
+        --light-bg: #f8f9fa;
+      }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+      }
 
-        .navbar {
-            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+      .navbar {
+        background: linear-gradient(
+          135deg,
+          var(--primary-purple) 0%,
+          var(--primary-blue) 100%
+        );
+        padding: 1rem 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
 
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white !important;
-            display: flex;
-            align-items: center;
-        }
+      .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: white !important;
+        display: flex;
+        align-items: center;
+      }
 
-        .navbar-brand img {
-            height: 60px;
-            margin-right: 15px;
-            background: white;
-            padding: 5px;
-            border-radius: 10px;
-        }
+      .navbar-brand img {
+        height: 60px;
+        margin-right: 15px;
+        background: white;
+        padding: 5px;
+        border-radius: 10px;
+      }
 
-        .nav-link {
-            color: rgba(255,255,255,0.9) !important;
-            font-weight: 500;
-            margin: 0 10px;
-            transition: all 0.3s;
-        }
+      .nav-link {
+        color: rgba(255, 255, 255, 0.9) !important;
+        font-weight: 500;
+        margin: 0 10px;
+        transition: all 0.3s;
+      }
 
-        .nav-link:hover {
-            color: white !important;
-            transform: translateY(-2px);
-        }
+      .nav-link:hover {
+        color: white !important;
+        transform: translateY(-2px);
+      }
 
-        .hero-section {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-purple) 50%, var(--primary-pink) 100%);
-            color: white;
-            padding: 120px 0 80px;
-            position: relative;
-            overflow: hidden;
-        }
+      .hero-section {
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue) 0%,
+          var(--primary-purple) 50%,
+          var(--primary-pink) 100%
+        );
+        color: white;
+        padding: 120px 0 80px;
+        position: relative;
+        overflow: hidden;
+      }
 
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
-            opacity: 0.3;
-        }
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.1"/></svg>');
+        opacity: 0.3;
+      }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
 
-        .hero-logo {
-            width: 150px;
-            height: 150px;
-            background: white;
-            border-radius: 20px;
-            padding: 15px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
+      .hero-logo {
+        width: 150px;
+        height: 150px;
+        background: white;
+        border-radius: 20px;
+        padding: 15px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
 
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        opacity: 0.95;
+      }
+
+      .btn-custom {
+        padding: 12px 35px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: 50px;
+        transition: all 0.3s;
+        border: none;
+      }
+
+      .btn-primary-custom {
+        background: white;
+        color: var(--primary-blue);
+      }
+
+      .btn-primary-custom:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--primary-purple);
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          var(--primary-blue),
+          var(--primary-pink)
+        );
+        border-radius: 2px;
+      }
+
+      .services-section {
+        padding: 80px 0;
+        background: var(--light-bg);
+      }
+
+      .service-card {
+        background: white;
+        border-radius: 15px;
+        padding: 30px 25px;
+        margin-bottom: 30px;
+        transition: all 0.3s;
+        border: 2px solid transparent;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        height: 100%;
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--primary-blue);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .service-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue),
+          var(--primary-pink)
+        );
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        color: white;
+        font-size: 1.5rem;
+      }
+
+      .service-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--primary-purple);
+        margin-bottom: 10px;
+      }
+
+      .service-number {
+        color: var(--primary-pink);
+        font-weight: 700;
+        margin-right: 8px;
+      }
+
+      .about-section {
+        padding: 80px 0;
+        background: white;
+      }
+
+      .about-content {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 102, 178, 0.05),
+          rgba(233, 30, 140, 0.05)
+        );
+        border-radius: 15px;
+        padding: 40px;
+        border-left: 5px solid var(--primary-blue);
+      }
+
+      .contact-section {
+        padding: 80px 0;
+        background: linear-gradient(
+          135deg,
+          var(--primary-purple) 0%,
+          var(--primary-blue) 100%
+        );
+        color: white;
+      }
+
+      .contact-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 30px;
+        margin-bottom: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s;
+        max-height: 250px;
+        min-height: 250px;
+      }
+
+      .contact-card:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateY(-5px);
+      }
+
+      .contact-icon {
+        font-size: 2rem;
+        color: var(--primary-pink);
+        margin-bottom: 15px;
+      }
+
+      .contact-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+
+      .footer {
+        background: var(--dark-bg);
+        color: white;
+        padding: 40px 0 20px;
+      }
+
+      .footer a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer a:hover {
+        color: white;
+      }
+
+      .request-section {
+        padding: 80px 0;
+        background: white;
+      }
+
+      .request-form {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 102, 178, 0.05),
+          rgba(233, 30, 140, 0.05)
+        );
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-control,
+      .form-select {
+        border-radius: 10px;
+        padding: 12px 20px;
+        border: 2px solid #e0e0e0;
+        transition: all 0.3s;
+      }
+
+      .form-control:focus,
+      .form-select:focus {
+        border-color: var(--primary-blue);
+        box-shadow: 0 0 0 0.2rem rgba(0, 102, 178, 0.15);
+      }
+
+      .form-label {
+        font-weight: 600;
+        color: var(--primary-purple);
+        margin-bottom: 8px;
+      }
+
+      .file-upload-wrapper {
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        width: 100%;
+      }
+
+      .file-upload-input {
+        position: absolute;
+        font-size: 100px;
+        opacity: 0;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+      }
+
+      .file-upload-label {
+        display: block;
+        padding: 12px 20px;
+        background: white;
+        border: 2px dashed var(--primary-blue);
+        border-radius: 10px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .file-upload-label:hover {
+        background: rgba(0, 102, 178, 0.05);
+        border-color: var(--primary-pink);
+      }
+
+      .file-upload-label i {
+        font-size: 2rem;
+        color: var(--primary-blue);
+        margin-bottom: 10px;
+      }
+
+      .uploaded-files {
+        margin-top: 15px;
+      }
+
+      .file-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 15px;
+        background: white;
+        border-radius: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #e0e0e0;
+      }
+
+      .file-item-name {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex: 1;
+      }
+
+      .file-item-remove {
+        background: #ff4757;
+        color: white;
+        border: none;
+        padding: 5px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .file-item-remove:hover {
+        background: #ff3838;
+      }
+
+      .btn-submit {
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue),
+          var(--primary-pink)
+        );
+        color: white;
+        padding: 15px 50px;
+        border: none;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        transition: all 0.3s;
+        width: 100%;
+      }
+
+      .btn-submit:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .success-message {
+        display: none;
+        background: linear-gradient(135deg, #00b894, #00cec9);
+        color: white;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .success-message i {
+        font-size: 3rem;
+        margin-bottom: 15px;
+      }
+
+      .stats-section {
+        background: white;
+        padding: 60px 0;
+        margin-top: -50px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .stat-card {
+        text-align: center;
+        padding: 30px;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 102, 178, 0.05),
+          rgba(233, 30, 140, 0.05)
+        );
+        border-radius: 15px;
+        transition: all 0.3s;
+      }
+
+      .stat-card:hover {
+        transform: scale(1.05);
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary-blue);
+      }
+
+      .stat-label {
+        font-size: 1.1rem;
+        color: #666;
+        margin-top: 10px;
+      }
+
+      @media (max-width: 768px) {
         .hero-title {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+          font-size: 1.8rem;
         }
-
         .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
+          font-size: 1rem;
         }
-
-        .btn-custom {
-            padding: 12px 35px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 50px;
-            transition: all 0.3s;
-            border: none;
-        }
-
-        .btn-primary-custom {
-            background: white;
-            color: var(--primary-blue);
-        }
-
-        .btn-primary-custom:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary-purple);
-            position: relative;
-            display: inline-block;
+          font-size: 1.8rem;
         }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-blue), var(--primary-pink));
-            border-radius: 2px;
+        .hero-logo {
+          width: 100px;
+          height: 100px;
+          margin-bottom: 20px;
         }
-
-        .services-section {
-            padding: 80px 0;
-            background: var(--light-bg);
+        .navbar-brand {
+          font-size: 1rem;
         }
-
-        .service-card {
-            background: white;
-            border-radius: 15px;
-            padding: 30px 25px;
-            margin-bottom: 30px;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            height: 100%;
+        .navbar-brand img {
+          height: 45px;
         }
+      }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary-blue);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+      @media (max-width: 576px) {
+        .hero-title {
+          font-size: 1.5rem;
         }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-pink));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            color: white;
-            font-size: 1.5rem;
+        .hero-subtitle {
+          font-size: 0.95rem;
         }
-
-        .service-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary-purple);
-            margin-bottom: 10px;
+        .section-title {
+          font-size: 1.5rem;
         }
-
-        .service-number {
-            color: var(--primary-pink);
-            font-weight: 700;
-            margin-right: 8px;
+        .hero-section {
+          padding: 100px 0 60px;
         }
-
-        .about-section {
-            padding: 80px 0;
-            background: white;
+        .hero-logo {
+          width: 80px;
+          height: 80px;
         }
-
-        .about-content {
-            background: linear-gradient(135deg, rgba(0,102,178,0.05), rgba(233,30,140,0.05));
-            border-radius: 15px;
-            padding: 40px;
-            border-left: 5px solid var(--primary-blue);
+        .navbar-brand {
+          font-size: 0.9rem;
         }
-
-        .contact-section {
-            padding: 80px 0;
-            background: linear-gradient(135deg, var(--primary-purple) 0%, var(--primary-blue) 100%);
-            color: white;
+        .navbar-brand img {
+          height: 40px;
+          margin-right: 8px;
         }
-
-        .contact-card {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: all 0.3s;
-        }
-
-        .contact-card:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-5px);
-        }
-
-        .contact-icon {
-            font-size: 2rem;
-            color: var(--primary-pink);
-            margin-bottom: 15px;
-        }
-
-        .contact-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .footer {
-            background: var(--dark-bg);
-            color: white;
-            padding: 40px 0 20px;
-        }
-
-        .footer a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer a:hover {
-            color: white;
-        }
-
-        .request-section {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .request-form {
-            background: linear-gradient(135deg, rgba(0,102,178,0.05), rgba(233,30,140,0.05));
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .form-control, .form-select {
-            border-radius: 10px;
-            padding: 12px 20px;
-            border: 2px solid #e0e0e0;
-            transition: all 0.3s;
-        }
-
-        .form-control:focus, .form-select:focus {
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 0 0.2rem rgba(0,102,178,0.15);
-        }
-
-        .form-label {
-            font-weight: 600;
-            color: var(--primary-purple);
-            margin-bottom: 8px;
-        }
-
-        .file-upload-wrapper {
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
-            width: 100%;
-        }
-
-        .file-upload-input {
-            position: absolute;
-            font-size: 100px;
-            opacity: 0;
-            right: 0;
-            top: 0;
-            cursor: pointer;
-        }
-
-        .file-upload-label {
-            display: block;
-            padding: 12px 20px;
-            background: white;
-            border: 2px dashed var(--primary-blue);
-            border-radius: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .file-upload-label:hover {
-            background: rgba(0,102,178,0.05);
-            border-color: var(--primary-pink);
-        }
-
-        .file-upload-label i {
-            font-size: 2rem;
-            color: var(--primary-blue);
-            margin-bottom: 10px;
-        }
-
-        .uploaded-files {
-            margin-top: 15px;
-        }
-
-        .file-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 15px;
-            background: white;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #e0e0e0;
-        }
-
-        .file-item-name {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex: 1;
-        }
-
-        .file-item-remove {
-            background: #ff4757;
-            color: white;
-            border: none;
-            padding: 5px 12px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .file-item-remove:hover {
-            background: #ff3838;
-        }
-
-        .btn-submit {
-            background: linear-gradient(135deg, var(--primary-blue), var(--primary-pink));
-            color: white;
-            padding: 15px 50px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s;
-            width: 100%;
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-
-        .success-message {
-            display: none;
-            background: linear-gradient(135deg, #00b894, #00cec9);
-            color: white;
-            padding: 20px;
-            border-radius: 15px;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .success-message i {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .stats-section {
-            background: white;
-            padding: 60px 0;
-            margin-top: -50px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 30px;
-            background: linear-gradient(135deg, rgba(0,102,178,0.05), rgba(233,30,140,0.05));
-            border-radius: 15px;
-            transition: all 0.3s;
-        }
-
-        .stat-card:hover {
-            transform: scale(1.05);
-        }
-
         .stat-number {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary-blue);
+          font-size: 2rem;
         }
-
         .stat-label {
-            font-size: 1.1rem;
-            color: #666;
-            margin-top: 10px;
+          font-size: 0.95rem;
         }
-
-        @media (max-width: 768px) {
-            .hero-title {
-                font-size: 1.8rem;
-            }
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-            .section-title {
-                font-size: 1.8rem;
-            }
-            .hero-logo {
-                width: 100px;
-                height: 100px;
-                margin-bottom: 20px;
-            }
-            .navbar-brand {
-                font-size: 1rem;
-            }
-            .navbar-brand img {
-                height: 45px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero-title {
-                font-size: 1.5rem;
-            }
-            .hero-subtitle {
-                font-size: 0.95rem;
-            }
-            .section-title {
-                font-size: 1.5rem;
-            }
-            .hero-section {
-                padding: 100px 0 60px;
-            }
-            .hero-logo {
-                width: 80px;
-                height: 80px;
-            }
-            .navbar-brand {
-                font-size: 0.9rem;
-            }
-            .navbar-brand img {
-                height: 40px;
-                margin-right: 8px;
-            }
-            .stat-number {
-                font-size: 2rem;
-            }
-            .stat-label {
-                font-size: 0.95rem;
-            }
-        }
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#home">
-                <img src="erumlogo.jpeg" alt="ERUM Logo">
-                <span>ERUM Professional Services</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#request">Request Service</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                </ul>
-            </div>
+      <div class="container">
+        <a class="navbar-brand" href="#home">
+          <img src="erumlogo.jpeg" alt="ERUM Logo" />
+          <span>ERUM Professional Services</span>
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="#services">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#request">Request Service</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
     <!-- Hero Section -->
     <section id="home" class="hero-section">
-        <div class="container hero-content">
-            <div class="row align-items-center">
-                <div class="col-lg-8">
-                    <!-- <img src="https://i.imgur.com/5xYJ8KM.png" alt="ERUM Logo" class="hero-logo"> -->
-                    <h1 class="hero-title">ERUM PROFESSIONAL SERVICES</h1>
-                    <p class="hero-subtitle">Your Trusted Legal Compliances Expert</p>
-                    <p class="mb-4">Partner: Ahmed Ali | Expert in Tax, GST, Company Registration & More</p>
-                    <a href="#contact" class="btn btn-custom btn-primary-custom">Get Started</a>
-                </div>
-            </div>
+      <div class="container hero-content">
+        <div class="row align-items-center">
+          <div class="col-lg-8">
+            <!-- <img src="https://i.imgur.com/5xYJ8KM.png" alt="ERUM Logo" class="hero-logo"> -->
+            <h1 class="hero-title">ERUM PROFESSIONAL SERVICES</h1>
+            <p class="hero-subtitle">Your Trusted Legal Compliances Expert</p>
+            <p class="mb-4">
+              Partner: Ahmed Ali | Expert in Tax, GST, Company Registration &
+              More
+            </p>
+            <a href="#contact" class="btn btn-custom btn-primary-custom"
+              >Get Started</a
+            >
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Stats Section -->
     <section class="stats-section">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-3 col-sm-6">
-                    <div class="stat-card">
-                        <div class="stat-number">22+</div>
-                        <div class="stat-label">Services</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="stat-card">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Compliance</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="stat-card">
-                        <div class="stat-number">24/7</div>
-                        <div class="stat-label">Support</div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6">
-                    <div class="stat-card">
-                        <div class="stat-number">Expert</div>
-                        <div class="stat-label">Team</div>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-3 col-sm-6">
+            <div class="stat-card">
+              <div class="stat-number">22+</div>
+              <div class="stat-label">Services</div>
             </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="stat-card">
+              <div class="stat-number">100%</div>
+              <div class="stat-label">Compliance</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="stat-card">
+              <div class="stat-number">24/7</div>
+              <div class="stat-label">Support</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-6">
+            <div class="stat-card">
+              <div class="stat-number">Expert</div>
+              <div class="stat-label">Team</div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services-section">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Our Services</h2>
-                <p class="lead mt-4">Comprehensive Legal & Tax Compliance Solutions</p>
-            </div>
-            <div class="row g-4">
-                <!-- Service Cards -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-box"></i></div>
-                        <h3 class="service-title"><span class="service-number">01.</span>Goods and Services Tax</h3>
-                        <p class="text-muted">Complete GST registration, filing, and compliance services</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-                        <h3 class="service-title"><span class="service-number">02.</span>Income Tax Return</h3>
-                        <p class="text-muted">Expert ITR filing for individuals and businesses</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-certificate"></i></div>
-                        <h3 class="service-title"><span class="service-number">03.</span>Digital Signature Certificate</h3>
-                        <p class="text-muted">Quick DSC issuance for secure digital transactions</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-receipt"></i></div>
-                        <h3 class="service-title"><span class="service-number">04.</span>TDS/TCS, ESI & EPF</h3>
-                        <p class="text-muted">Complete TDS/TCS filing and payroll compliance</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-user-tie"></i></div>
-                        <h3 class="service-title"><span class="service-number">05.</span>Professional Tax</h3>
-                        <p class="text-muted">Professional tax registration and compliance</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-building"></i></div>
-                        <h3 class="service-title"><span class="service-number">06.</span>Registration of Company (ROC)</h3>
-                        <p class="text-muted">Private Limited, LLP, and OPC registration</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-industry"></i></div>
-                        <h3 class="service-title"><span class="service-number">07.</span>MSME / Udyham / Aadhaar Udyog</h3>
-                        <p class="text-muted">Quick MSME registration and benefits</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-users"></i></div>
-                        <h3 class="service-title"><span class="service-number">08.</span>Director KYC (DIN)</h3>
-                        <p class="text-muted">DIN application and KYC compliance</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-check-circle"></i></div>
-                        <h3 class="service-title"><span class="service-number">09.</span>ISO</h3>
-                        <p class="text-muted">ISO certification consulting and assistance</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-home"></i></div>
-                        <h3 class="service-title"><span class="service-number">10.</span>Society & Trust</h3>
-                        <p class="text-muted">Registration of societies and trusts</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-handshake"></i></div>
-                        <h3 class="service-title"><span class="service-number">11.</span>Partnership</h3>
-                        <p class="text-muted">Partnership firm registration and deed</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-store"></i></div>
-                        <h3 class="service-title"><span class="service-number">12.</span>Shop & Establishment (ESA)</h3>
-                        <p class="text-muted">Shop Act license registration</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-trademark"></i></div>
-                        <h3 class="service-title"><span class="service-number">13.</span>Trademark</h3>
-                        <p class="text-muted">Trademark registration and protection</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-globe"></i></div>
-                        <h3 class="service-title"><span class="service-number">14.</span>Import & Export (IE)</h3>
-                        <p class="text-muted">IEC code registration and customs clearance</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-utensils"></i></div>
-                        <h3 class="service-title"><span class="service-number">15.</span>Food License (FSSAI)</h3>
-                        <p class="text-muted">FSSAI registration and license renewal</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-tag"></i></div>
-                        <h3 class="service-title"><span class="service-number">16.</span>SBI FASTag</h3>
-                        <p class="text-muted">FASTag issuance and recharge services</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-home"></i></div>
-                        <h3 class="service-title"><span class="service-number">17.</span>SBI HLC (Home Loan Counsellor)</h3>
-                        <p class="text-muted">Home loan consultation and processing</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-id-card"></i></div>
-                        <h3 class="service-title"><span class="service-number">18.</span>PAN & TAN</h3>
-                        <p class="text-muted">PAN and TAN application services</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-calculator"></i></div>
-                        <h3 class="service-title"><span class="service-number">19.</span>All Type of Accounting Service</h3>
-                        <p class="text-muted">Bookkeeping, financial statements, and audits</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-laptop"></i></div>
-                        <h3 class="service-title"><span class="service-number">20.</span>Tally Sales and Maintenance</h3>
-                        <p class="text-muted">Tally software sales, installation, and support</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-award"></i></div>
-                        <h3 class="service-title"><span class="service-number">21.</span>Jeevan Pramaan (Live Certificate)</h3>
-                        <p class="text-muted">Digital life certificate for pensioners</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-card">
-                        <div class="service-icon"><i class="fas fa-credit-card"></i></div>
-                        <h3 class="service-title"><span class="service-number">22.</span>TIN - PAN Facilitation Centre</h3>
-                        <p class="text-muted">Authorized TIN-PAN facilitation services</p>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Our Services</h2>
+          <p class="lead mt-4">
+            Comprehensive Legal & Tax Compliance Solutions
+          </p>
         </div>
+        <div class="row g-4">
+          <!-- Service Cards -->
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="gst">
+              <div class="service-icon"><i class="fas fa-box"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">01.</span>Goods and Services Tax
+              </h3>
+              <p class="text-muted">
+                Complete GST registration, filing, and compliance services
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="itr">
+              <div class="service-icon">
+                <i class="fas fa-file-invoice-dollar"></i>
+              </div>
+              <h3 class="service-title">
+                <span class="service-number">02.</span>Income Tax Return
+              </h3>
+              <p class="text-muted">
+                Expert ITR filing for individuals and businesses
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="dsc">
+              <div class="service-icon"><i class="fas fa-certificate"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">03.</span>Digital Signature
+                Certificate
+              </h3>
+              <p class="text-muted">
+                Quick DSC issuance for secure digital transactions
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="tds">
+              <div class="service-icon"><i class="fas fa-receipt"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">04.</span>TDS/TCS, ESI & EPF
+              </h3>
+              <p class="text-muted">
+                Complete TDS/TCS filing and payroll compliance
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="ptax">
+              <div class="service-icon"><i class="fas fa-user-tie"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">05.</span>Professional Tax
+              </h3>
+              <p class="text-muted">
+                Professional tax registration and compliance
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="tds">
+              <div class="service-icon"><i class="fas fa-building"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">06.</span>Registration of Company
+                (ROC)
+              </h3>
+              <p class="text-muted">
+                Private Limited, LLP, and OPC registration
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="msme">
+              <div class="service-icon"><i class="fas fa-industry"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">07.</span>MSME / Udyham / Aadhaar
+                Udyog
+              </h3>
+              <p class="text-muted">Quick MSME registration and benefits</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="dkyc">
+              <div class="service-icon"><i class="fas fa-users"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">08.</span>Director KYC (DIN)
+              </h3>
+              <p class="text-muted">DIN application and KYC compliance</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="iso">
+              <div class="service-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h3 class="service-title">
+                <span class="service-number">09.</span>ISO
+              </h3>
+              <p class="text-muted">
+                ISO certification consulting and assistance
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="shop">
+              <div class="service-icon"><i class="fas fa-home"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">10.</span>Society & Trust
+              </h3>
+              <p class="text-muted">Registration of societies and trusts</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="pts">
+              <div class="service-icon"><i class="fas fa-handshake"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">11.</span>Partnership
+              </h3>
+              <p class="text-muted">Partnership firm registration and deed</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="shop">
+              <div class="service-icon"><i class="fas fa-store"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">12.</span>Shop & Establishment
+                (ESA)
+              </h3>
+              <p class="text-muted">Shop Act license registration</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="tm">
+              <div class="service-icon"><i class="fas fa-trademark"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">13.</span>Trademark
+              </h3>
+              <p class="text-muted">Trademark registration and protection</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="ie">
+              <div class="service-icon"><i class="fas fa-globe"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">14.</span>Import & Export (IE)
+              </h3>
+              <p class="text-muted">
+                IEC code registration and customs clearance
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="fssai">
+              <div class="service-icon"><i class="fas fa-utensils"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">15.</span>Food License (FSSAI)
+              </h3>
+              <p class="text-muted">FSSAI registration and license renewal</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="sbi">
+              <div class="service-icon"><i class="fas fa-tag"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">16.</span>SBI FASTag
+              </h3>
+              <p class="text-muted">FASTag issuance and recharge services</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="hlc">
+              <div class="service-icon"><i class="fas fa-home"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">17.</span>SBI HLC (Home Loan
+                Counsellor)
+              </h3>
+              <p class="text-muted">Home loan consultation and processing</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="pantan">
+              <div class="service-icon"><i class="fas fa-id-card"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">18.</span>PAN & TAN
+              </h3>
+              <p class="text-muted">PAN and TAN application services</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="atas">
+              <div class="service-icon"><i class="fas fa-calculator"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">19.</span>All Type of Accounting
+                Service
+              </h3>
+              <p class="text-muted">
+                Bookkeeping, financial statements, and audits
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="tally">
+              <div class="service-icon"><i class="fas fa-laptop"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">20.</span>Tally Sales and
+                Maintenance
+              </h3>
+              <p class="text-muted">
+                Tally software sales, installation, and support
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="jeevan">
+              <div class="service-icon"><i class="fas fa-award"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">21.</span>Jeevan Pramaan (Live
+                Certificate)
+              </h3>
+              <p class="text-muted">Digital life certificate for pensioners</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card" data-service="tin">
+              <div class="service-icon"><i class="fas fa-credit-card"></i></div>
+              <h3 class="service-title">
+                <span class="service-number">22.</span>TIN - PAN Facilitation
+                Centre
+              </h3>
+              <p class="text-muted">Authorized TIN-PAN facilitation services</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about-section">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h2 class="section-title">About Us</h2>
-                    <p class="lead mt-4">Your Trusted Partner in Legal Compliances</p>
-                    <div class="about-content mt-4">
-                        <h4 class="mb-3" style="color: var(--primary-purple);">Why Choose ERUM Professional Services?</h4>
-                        <ul class="list-unstyled">
-                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>Expert Partner:</strong> Led by Ahmed Ali, a legal compliances expert</li>
-                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>Comprehensive Services:</strong> 22+ professional services under one roof</li>
-                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>Timely Delivery:</strong> Quick and efficient service delivery</li>
-                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>Transparent Pricing:</strong> No hidden charges, competitive rates</li>
-                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> <strong>Client-Centric:</strong> Your satisfaction is our priority</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="p-4">
-                        <h4 class="mb-4" style="color: var(--primary-purple);">Our Expertise</h4>
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-between mb-1">
-                                <span>Tax Compliance</span>
-                                <span class="text-muted">Expert</span>
-                            </div>
-                            <div class="progress" style="height: 8px;">
-                                <div class="progress-bar" style="width: 100%; background: linear-gradient(90deg, var(--primary-blue), var(--primary-pink));"></div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-between mb-1">
-                                <span>Company Registration</span>
-                                <span class="text-muted">Expert</span>
-                            </div>
-                            <div class="progress" style="height: 8px;">
-                                <div class="progress-bar" style="width: 100%; background: linear-gradient(90deg, var(--primary-blue), var(--primary-pink));"></div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-between mb-1">
-                                <span>Accounting Services</span>
-                                <span class="text-muted">Expert</span>
-                            </div>
-                            <div class="progress" style="height: 8px;">
-                                <div class="progress-bar" style="width: 100%; background: linear-gradient(90deg, var(--primary-blue), var(--primary-pink));"></div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-between mb-1">
-                                <span>License & Registrations</span>
-                                <span class="text-muted">Expert</span>
-                            </div>
-                            <div class="progress" style="height: 8px;">
-                                <div class="progress-bar" style="width: 100%; background: linear-gradient(90deg, var(--primary-blue), var(--primary-pink));"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <h2 class="section-title">About Us</h2>
+            <p class="lead mt-4">Your Trusted Partner in Legal Compliances</p>
+            <div class="about-content mt-4">
+              <h4 class="mb-3" style="color: var(--primary-purple)">
+                Why Choose ERUM Professional Services?
+              </h4>
+              <ul class="list-unstyled">
+                <li class="mb-3">
+                  <i class="fas fa-check-circle text-success me-2"></i>
+                  <strong>Expert Partner:</strong> Led by Ahmed Ali, a legal
+                  compliances expert
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-check-circle text-success me-2"></i>
+                  <strong>Comprehensive Services:</strong> 22+ professional
+                  services under one roof
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-check-circle text-success me-2"></i>
+                  <strong>Timely Delivery:</strong> Quick and efficient service
+                  delivery
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-check-circle text-success me-2"></i>
+                  <strong>Transparent Pricing:</strong> No hidden charges,
+                  competitive rates
+                </li>
+                <li class="mb-3">
+                  <i class="fas fa-check-circle text-success me-2"></i>
+                  <strong>Client-Centric:</strong> Your satisfaction is our
+                  priority
+                </li>
+              </ul>
             </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="p-4">
+              <h4 class="mb-4" style="color: var(--primary-purple)">
+                Our Expertise
+              </h4>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between mb-1">
+                  <span>Tax Compliance</span>
+                  <span class="text-muted">Expert</span>
+                </div>
+                <div class="progress" style="height: 8px">
+                  <div
+                    class="progress-bar"
+                    style="
+                      width: 100%;
+                      background: linear-gradient(
+                        90deg,
+                        var(--primary-blue),
+                        var(--primary-pink)
+                      );
+                    "
+                  ></div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between mb-1">
+                  <span>Company Registration</span>
+                  <span class="text-muted">Expert</span>
+                </div>
+                <div class="progress" style="height: 8px">
+                  <div
+                    class="progress-bar"
+                    style="
+                      width: 100%;
+                      background: linear-gradient(
+                        90deg,
+                        var(--primary-blue),
+                        var(--primary-pink)
+                      );
+                    "
+                  ></div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between mb-1">
+                  <span>Accounting Services</span>
+                  <span class="text-muted">Expert</span>
+                </div>
+                <div class="progress" style="height: 8px">
+                  <div
+                    class="progress-bar"
+                    style="
+                      width: 100%;
+                      background: linear-gradient(
+                        90deg,
+                        var(--primary-blue),
+                        var(--primary-pink)
+                      );
+                    "
+                  ></div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <div class="d-flex justify-content-between mb-1">
+                  <span>License & Registrations</span>
+                  <span class="text-muted">Expert</span>
+                </div>
+                <div class="progress" style="height: 8px">
+                  <div
+                    class="progress-bar"
+                    style="
+                      width: 100%;
+                      background: linear-gradient(
+                        90deg,
+                        var(--primary-blue),
+                        var(--primary-pink)
+                      );
+                    "
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Request Service Section -->
     <section id="request" class="request-section">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title">Request a Service</h2>
-                <p class="lead mt-4">Fill out the form below and we'll get back to you shortly</p>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="request-form">
-                        <form id="serviceRequestForm">
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="fullName" class="form-label">Full Name *</label>
-                                    <input type="text" class="form-control" id="fullName" required placeholder="Enter your full name">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="email" class="form-label">Email Address *</label>
-                                    <input type="email" class="form-control" id="email" required placeholder="your.email@example.com">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="phone" class="form-label">Phone Number *</label>
-                                    <input type="tel" class="form-control" id="phone" required placeholder="+91 XXXXX XXXXX">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="serviceType" class="form-label">Select Service *</label>
-                                    <select class="form-select" id="serviceType" required>
-                                        <option value="">Choose a service...</option>
-                                        <option value="gst">Goods and Services Tax</option>
-                                        <option value="itr">Income Tax Return</option>
-                                        <option value="dsc">Digital Signature Certificate</option>
-                                        <option value="tds">TDS/TCS, ESI & EPF</option>
-                                        <option value="ptax">Professional Tax</option>
-                                        <option value="roc">Registration of Company (ROC)</option>
-                                        <option value="msme">MSME / Udyham / Aadhaar Udyog</option>
-                                        <option value="din">Director KYC (DIN)</option>
-                                        <option value="iso">ISO</option>
-                                        <option value="society">Society & Trust</option>
-                                        <option value="partnership">Partnership</option>
-                                        <option value="esa">Shop & Establishment (ESA)</option>
-                                        <option value="trademark">Trademark</option>
-                                        <option value="import">Import & Export (IE)</option>
-                                        <option value="fssai">Food License (FSSAI)</option>
-                                        <option value="fastag">SBI FASTag</option>
-                                        <option value="homeloan">SBI HLC (Home Loan Counsellor)</option>
-                                        <option value="pan">PAN & TAN</option>
-                                        <option value="accounting">All Type of Accounting Service</option>
-                                        <option value="tally">Tally Sales and Maintenance</option>
-                                        <option value="jeevan">Jeevan Pramaan (Live Certificate)</option>
-                                        <option value="tin">TIN - PAN Facilitation Centre</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Message / Additional Details</label>
-                                <textarea class="form-control" id="message" rows="4" placeholder="Please provide any additional information about your service request..."></textarea>
-                            </div>
-                            <div class="mb-4">
-                                <label class="form-label">Upload Documents (Optional)</label>
-                                <div class="file-upload-wrapper">
-                                    <label class="file-upload-label">
-                                        <i class="fas fa-cloud-upload-alt"></i>
-                                        <div><strong>Click to upload</strong> or drag and drop</div>
-                                        <small class="text-muted">PDF, DOC, DOCX, JPG, PNG (Max 5MB each)</small>
-                                    </label>
-                                    <input type="file" class="file-upload-input" id="fileUpload" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
-                                </div>
-                                <div class="uploaded-files" id="uploadedFiles"></div>
-                            </div>
-                            <button type="submit" class="btn btn-submit">
-                                <i class="fas fa-paper-plane me-2"></i> Submit Request
-                            </button>
-                        </form>
-                        <div class="success-message" id="successMessage">
-                            <i class="fas fa-check-circle"></i>
-                            <h4>Request Submitted Successfully!</h4>
-                            <p>Thank you for your service request. We will contact you shortly.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Request a Service</h2>
+          <p class="lead mt-4">
+            Fill out the form below and we'll get back to you shortly
+          </p>
         </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="request-form">
+              <form id="serviceRequestForm">
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="fullName" class="form-label">Full Name *</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="fullName"
+                      required
+                      placeholder="Enter your full name"
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="email" class="form-label"
+                      >Email Address *</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      required
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="phone" class="form-label">Phone Number *</label>
+                    <input
+                      type="tel"
+                      class="form-control"
+                      id="phone"
+                      required
+                      placeholder="+91 XXXXX XXXXX"
+                    />
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="serviceType" class="form-label"
+                      >Select Service *</label
+                    >
+                    <select class="form-select" id="serviceType" required>
+                      <option value="">Choose a service...</option>
+                      <option value="gst">Goods and Services Tax</option>
+                      <option value="itr">Income Tax Return</option>
+                      <option value="dsc">Digital Signature Certificate</option>
+                      <option value="tds">TDS/TCS, ESI & EPF</option>
+                      <option value="ptax">Professional Tax</option>
+                      <option value="roc">Registration of Company (ROC)</option>
+                      <option value="msme">
+                        MSME / Udyham / Aadhaar Udyog
+                      </option>
+                      <option value="din">Director KYC (DIN)</option>
+                      <option value="iso">ISO</option>
+                      <option value="society">Society & Trust</option>
+                      <option value="partnership">Partnership</option>
+                      <option value="esa">Shop & Establishment (ESA)</option>
+                      <option value="trademark">Trademark</option>
+                      <option value="import">Import & Export (IE)</option>
+                      <option value="fssai">Food License (FSSAI)</option>
+                      <option value="fastag">SBI FASTag</option>
+                      <option value="homeloan">
+                        SBI HLC (Home Loan Counsellor)
+                      </option>
+                      <option value="pan">PAN & TAN</option>
+                      <option value="accounting">
+                        All Type of Accounting Service
+                      </option>
+                      <option value="tally">Tally Sales and Maintenance</option>
+                      <option value="jeevan">
+                        Jeevan Pramaan (Live Certificate)
+                      </option>
+                      <option value="tin">TIN - PAN Facilitation Centre</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="message" class="form-label"
+                    >Message / Additional Details</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="message"
+                    rows="4"
+                    placeholder="Please provide any additional information about your service request..."
+                  ></textarea>
+                </div>
+                <div class="mb-4">
+                  <label class="form-label">Upload Documents (Optional)</label>
+                  <div class="file-upload-wrapper">
+                    <label class="file-upload-label">
+                      <i class="fas fa-cloud-upload-alt"></i>
+                      <div>
+                        <strong>Click to upload</strong> or drag and drop
+                      </div>
+                      <small class="text-muted"
+                        >PDF, DOC, DOCX, JPG, PNG (Max 5MB each)</small
+                      >
+                    </label>
+                    <input
+                      type="file"
+                      class="file-upload-input"
+                      id="fileUpload"
+                      multiple
+                      accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                    />
+                  </div>
+                  <div class="uploaded-files" id="uploadedFiles"></div>
+                </div>
+                <button type="submit" class="btn btn-submit">
+                  <i class="fas fa-paper-plane me-2"></i> Submit Request
+                </button>
+              </form>
+              <div class="success-message" id="successMessage">
+                <i class="fas fa-check-circle"></i>
+                <h4>Request Submitted Successfully!</h4>
+                <p>
+                  Thank you for your service request. We will contact you
+                  shortly.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
-        <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title text-white">Contact Us</h2>
-                <p class="lead mt-4">Get in touch with us for all your compliance needs</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                    <div class="contact-card">
-                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-                        <h4 class="contact-title">Address</h4>
-                        <p class="mb-0">G-4, Thikana Apartment, 34, B.L. Ghosh Road,<br>P.O. Ariadaha, P.S. Belghoria,<br>Kolkata - 700 035</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="contact-card">
-                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-                        <h4 class="contact-title">Phone</h4>
-                        <p class="mb-1"><a href="tel:+919831919713" class="text-white">+91-9831919713</a></p>
-                        <p class="mb-1"><a href="tel:+919875524469" class="text-white">+91-9875524469</a></p>
-                        <p class="mb-0"><a href="tel:+919674299754" class="text-white">+91-9674299754</a></p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="contact-card">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <h4 class="contact-title">Email & Website</h4>
-                        <p class="mb-2"><a href="mailto:cc.erumps@gmail.com" class="text-white">cc.erumps@gmail.com</a></p>
-                        <p class="mb-0"><a href="http://www.erumps.com" class="text-white" target="_blank">www.erumps.com</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col-12 text-center">
-                    <h4 class="mb-4">Business Hours</h4>
-                    <p class="mb-2">Monday - Saturday: 10:00 AM - 7:00 PM</p>
-                    <p>Sunday: Closed</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title text-white">Contact Us</h2>
+          <p class="lead mt-4">
+            Get in touch with us for all your compliance needs
+          </p>
         </div>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <h4 class="contact-title">Address</h4>
+              <p class="mb-0">
+                F-4, Thikana Apartment, 34, B.L. Ghosh Road,<br />P.O. Ariadaha,
+                P.S. Belghoria,<br />Kolkata - 700 057
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+              <h4 class="contact-title">Phone</h4>
+              <p class="mb-1">
+                <a href="tel:+919831919713" class="text-white"
+                  >+91-9831919713</a
+                >
+              </p>
+              <p class="mb-1">
+                <a href="tel:+919875524469" class="text-white"
+                  >+91-9875524469</a
+                >
+              </p>
+              <p class="mb-0">
+                <a href="tel:+919674299754" class="text-white"
+                  >+91-9674299754</a
+                >
+              </p>
+              <p class="mb-0">
+                <a href="tel:+919674148945" class="text-white"
+                  >+91-9674148945</a
+                >
+              </p>
+
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="contact-card">
+              <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+              <h4 class="contact-title">Email & Website</h4>
+              <p class="mb-2">
+                <a href="mailto:cc.erumps@gmail.com" class="text-white"
+                  >cc.erumps@gmail.com</a
+                >
+              </p>
+              <p class="mb-0">
+                <a
+                  href="http://www.erumps.com"
+                  class="text-white"
+                  target="_blank"
+                  >www.erumps.com</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 text-center">
+            <h4 class="mb-4">Business Hours</h4>
+            <p class="mb-2">Monday - Saturday: 10:00 AM - 7:00 PM</p>
+            <p>Sunday: Closed</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h5 class="mb-3">ERUM Professional Services</h5>
-                    <p>Your trusted partner for all legal compliances, tax services, and business registrations in Kolkata.</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <h5 class="mb-3">ERUM Professional Services</h5>
+            <p>
+              Your trusted partner for all legal compliances, tax services, and
+              business registrations in Kolkata.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <h5 class="mb-3">Quick Links</h5>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="#home">Home</a></li>
+            <li class="mb-2"><a href="#services">Services</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Service Details Modal (paste before </body>) -->
+    <div
+      class="modal fade"
+      id="serviceDetailsModal"
+      tabindex="-1"
+      aria-labelledby="serviceDetailsLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div
+          class="modal-content"
+          style="border-radius: 16px; overflow: hidden"
+        >
+          <div
+            class="modal-header"
+            style="
+              background: linear-gradient(
+                135deg,
+                var(--primary-purple),
+                var(--primary-blue)
+              );
+              color: #fff;
+            "
+          >
+            <h5 class="modal-title" id="serviceDetailsLabel">
+              Service Details
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" style="background: var(--light-bg)">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-12 mb-3">
+                  <h4
+                    id="sd-title"
+                    style="color: var(--primary-purple); font-weight: 700"
+                  ></h4>
+                  <p id="sd-summary" class="text-muted"></p>
                 </div>
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h5 class="mb-3">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li class="mb-2"><a href="#home">Home</a></li>
-                        <li class="mb-2"><a href="#services">Services
+
+                <div class="col-md-6">
+                  <h6 style="color: var(--primary-blue); font-weight: 700">
+                    Required Documents
+                  </h6>
+                  <ul id="sd-docs" class="mb-4" style="padding-left: 1rem"></ul>
+                </div>
+
+                <div class="col-md-6">
+                  <h6 style="color: var(--primary-blue); font-weight: 700">
+                    Fees & Processing Time
+                  </h6>
+                  <p id="sd-fees" class="mb-2"></p>
+                  <p id="sd-time" class="mb-0"></p>
+                </div>
+
+                <div class="col-12 mt-3">
+                  <h6 style="color: var(--primary-blue); font-weight: 700">
+                    Notes
+                  </h6>
+                  <p id="sd-notes" class="text-muted small mb-0"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal-footer"
+            style="
+              background: linear-gradient(
+                90deg,
+                rgba(45, 27, 94, 0.03),
+                rgba(0, 102, 178, 0.03)
+              );
+            "
+          >
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <a
+              href="#request"
+              class="btn btn-primary"
+              id="sd-request-btn"
+              data-bs-dismiss="modal"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  var(--primary-blue),
+                  var(--primary-pink)
+                );
+                border: none;
+              "
+              >Request this service</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Script to wire up service cards (paste after modal and before </body>) -->
+    <script>
+      (function () {
+        // Define details for each service key (match keys used below)
+        const serviceDetails = {
+          gst: {
+            title: "Goods and Services Tax (GST)",
+            summary:
+              "Complete GST registration, filing, and compliance services.",
+            docs: [
+              "PAN card of applicant",
+              "Aadhaar / identity proof",
+              "Proof of business address",
+              "Bank account proof",
+              "Photos of authorized signatory",
+            ],
+            fees: "Registration from ₹1,499; Filing packages from ₹499/month.",
+            time: "Processing time: 2–7 business days (registration) / Monthly filings as per return schedule.",
+            notes:
+              "Exact fee depends on entity type and turnover; additional advisory billed separately.",
+          },
+          itr: {
+            title: "Income Tax Return (ITR)",
+            summary: "Expert ITR filing for individuals and businesses.",
+            docs: [
+              "PAN card",
+              "Form 16 / income proofs",
+              "Bank statements",
+              "Investment proofs / invoices",
+            ],
+            fees: "ITR filing from ₹499 for individuals; business returns priced per complexity.",
+            time: "Processing time: 1–3 business days after documents received.",
+            notes: "Late filing or notices attract extra charges.",
+          },
+          dsc: {
+            title: "Digital Signature Certificate (DSC)",
+            summary: "Quick DSC issuance for secure digital transactions.",
+            docs: [
+              "PAN card",
+              "Aadhaar/ID proof",
+              "Passport-size photo",
+              "Address proof",
+            ],
+            fees: "DSC issuance from ₹899 (one-year certificate available).",
+            time: "Processing time: Same day to 2 business days after verification.",
+            notes:
+              "In-person or video KYC may be required by the Certifying Authority.",
+          },
+          roc: {
+            title: "Registration of Company (ROC)",
+            summary: "Private Limited, LLP, and OPC registration.",
+            docs: [
+              "PAN and Aadhaar of Directors",
+              "Address proof of registered office",
+              "No-objection from landlord",
+              "Director photographs",
+              "Subscription to Memorandum & Articles (for Pvt Ltd)",
+            ],
+            fees: "Package starts from ₹4,999 (excl. government fees).",
+            time: "Processing time: 5–15 business days depending on availability of DIN/DSC and ROC backlog.",
+            notes: "Government ROC fees & stamp duty extra as applicable.",
+          },
+          pan: {
+            title: "PAN & TAN",
+            summary: "PAN and TAN application services.",
+            docs: [
+              "Proof of identity (PAN application)",
+              "Proof of address",
+              "Proof of date of birth (individual)",
+            ],
+            fees: "PAN application assistance from ₹199; TAN from ₹299.",
+            time: "Processing time: PAN issuance 7–15 business days (govt timeline).",
+            notes:
+              "Fees exclude government processing charges where applicable.",
+          },
+          // add other services as needed using the option value keys (e.g., tds, msme, fssai, trademark, etc.)
+        };
+
+        // Attach click handlers to service cards
+        document
+          .querySelectorAll(".service-card")
+          .forEach(function (card, idx) {
+            debugger;
+            // Make the whole card clickable; add a data-service attribute if not present
+            // We'll infer service key from the displayed title number or index as reasonable fallback
+            card.style.cursor = "pointer";
+
+            // If you prefer explicit mapping, add data-service attributes to card elements in HTML:
+            // <div class="service-card" data-service="gst"> ... </div>
+            card.addEventListener("click", function (e) {
+              // try to read data-service attribute
+              let key = card.getAttribute("data-service");
+              if (!key) {
+                // attempt to infer from inner title text (good for existing structure)
+                const titleEl = card.querySelector(".service-title");
+                if (titleEl) {
+                  const txt = titleEl.textContent || titleEl.innerText || "";
+                  // map common names to keys
+                  debugger;
+                  const map = {
+                    "Goods and Services Tax": "gst",
+                    "Income Tax Return": "itr",
+                    "Digital Signature Certificate": "dsc",
+                    "Registration of Company (ROC)": "roc",
+                    "Professional Tax": "ptax",
+                    "TDS/TCS, ESI & EPF": "tds",
+                    "Quick MSME registration and benefits": "msme",
+                    "DIN application and KYC compliance": "dkyc",
+                    ISO: "iso",
+                    "Shop Act license registration": "shop",
+                    Partnership: "pts",
+                    "Society & Trust": "trust",
+                    Trademark: "tm",
+
+                    "Import & Export (IE)": "ie",
+                    "Food License (FSSAI)": "fssai",
+                    "SBI FASTag": "sbi",
+                    "SBI HLC (Home Loan Counsellor)": "hlc",
+                    "PAN & TAN": "pantan",
+                    "All Type of Accounting Service": "atas",
+                    "Tally Sales and Maintenance": "tally",
+                    "Jeevan Pramaan (Live Certificate)": "jeevan",
+                    "TIN - PAN Facilitation Centre": "tin",
+                    // extend map as needed
+                  };
+                  // find a matching map entry by checking which key's label exists in text
+                  key = Object.keys(map).find((k) => txt.indexOf(k) !== -1);
+                  if (key) key = map[key];
+                }
+              }
+
+              // fallback: if still no key, try using the service-number digit (first number inside .service-number)
+              if (!key) {
+                const numEl = card.querySelector(".service-number");
+                if (numEl) {
+                  const num = (numEl.textContent || "").trim().replace(".", "");
+                  // create a fallback key using 'svc' + number
+                  key = "svc" + num;
+                }
+              }
+
+              const details = serviceDetails[key];
+              // If we have details, populate modal; otherwise show generic message
+              const modalTitle = document.getElementById("sd-title");
+              const modalSummary = document.getElementById("sd-summary");
+              const modalDocs = document.getElementById("sd-docs");
+              const modalFees = document.getElementById("sd-fees");
+              const modalTime = document.getElementById("sd-time");
+              const modalNotes = document.getElementById("sd-notes");
+              const requestBtn = document.getElementById("sd-request-btn");
+
+              if (details) {
+                modalTitle.textContent = details.title;
+                modalSummary.textContent = details.summary;
+                modalDocs.innerHTML = details.docs
+                  .map((d) => "<li>" + escapeHtml(d) + "</li>")
+                  .join("");
+                modalFees.textContent = details.fees;
+                modalTime.textContent = details.time;
+                modalNotes.textContent = details.notes;
+                // set request button to prefill service in Request form via anchor hash and query param
+                requestBtn.href = "#request";
+                requestBtn.setAttribute("data-service-key", key);
+              } else {
+                modalTitle.textContent = "Service Details";
+                modalSummary.textContent =
+                  "Details for this service are not listed. Please request the service and we will share the required documents and fees.";
+                modalDocs.innerHTML =
+                  "<li>General ID proof</li><li>Address proof</li>";
+                modalFees.textContent =
+                  "Fees vary by service. Please request a quote.";
+                modalTime.textContent = "Processing time varies by service.";
+                modalNotes.textContent = "";
+                requestBtn.href = "#request";
+                requestBtn.removeAttribute("data-service-key");
+              }
+
+              // show modal
+              const modalEl = document.getElementById("serviceDetailsModal");
+              const bsModal = new bootstrap.Modal(modalEl);
+              bsModal.show();
+            });
+          });
+
+        // Optional: when user clicks "Request this service" copy service into Request form select
+        document
+          .getElementById("sd-request-btn")
+          .addEventListener("click", function () {
+            const key = this.getAttribute("data-service-key");
+            if (!key) return;
+            const select = document.getElementById("serviceType");
+            if (!select) return;
+            // try to find matching option by value
+            const opt = Array.from(select.options).find((o) => o.value === key);
+            if (opt) {
+              select.value = key;
+              // scroll to request section
+              setTimeout(() => {
+                document
+                  .querySelector("#request")
+                  .scrollIntoView({ behavior: "smooth", block: "start" });
+                // focus first input
+                const nameInput = document.getElementById("fullName");
+                if (nameInput) nameInput.focus();
+              }, 200);
+            }
+          });
+
+        // small helper to prevent XSS content injection
+        function escapeHtml(text) {
+          return String(text)
+            .replace(/&/g, "&amp;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#39;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;");
+        }
+      })();
+    </script>
+  </body>
+</html>
